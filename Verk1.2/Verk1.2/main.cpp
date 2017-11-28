@@ -31,6 +31,4 @@ int main() {
         cout << "The file didn't open" << endl;
     }
     return 0;
-    }
-    return 0;
 }
