@@ -21,13 +21,14 @@ void createGroupOfHeroes() {
         fout.write((char*)(&hero[i]), sizeof(SuperHero));
     }
     fout.close();
+    delete[] hero;
     
 }
 
 void printFromTxt() {
     
 
-    cout << endl << "Your Superteam from txt file" << endl;
+    cout << endl << "Your Superteam from binary file" << endl;
     ifstream fin;
     fin.open("superheros.dat", ios::binary);
 
