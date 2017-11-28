@@ -12,15 +12,25 @@ using namespace std;
 
 int main() {
 
-    string str;
+    string str = " ";
     ofstream fout;
-    fout.open("nextFileTwo.txt", ios::app);
+    fout.open("testFileTwo.txt", ios::app);
+    
+    cout << "Write some text..." << endl;
     
     if(fout.is_open()) {
-        getline(cin, str);
-        if (str[0] != '\\') {
-        fout << str << endl;
+        while(str[0] != '\\') {
+            getline(cin, str);
+            if(str[0] != '\\') {
+                fout << str << endl;
+            }
         }
+        fout.close();
+    }
+    else {
+        cout << "The file didn't open" << endl;
+    }
+    return 0;
     }
     return 0;
 }
