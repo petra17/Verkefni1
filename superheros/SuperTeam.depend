@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1510855999 source:c:\kennsla\forritun\exams\haust2017lokaprof_solutions\superteam\main.cpp
+	<iostream>
+
+1510918862 source:/home/ruexam/exam/SuperTeam/superhero.cpp
+	"superhero.h"
+
+1510919267 /home/ruexam/exam/SuperTeam/superhero.h
+	<iostream>
+	<string>
+
+1510918725 source:/home/ruexam/exam/SuperTeam/main.cpp
+	<iostream>
+	"superhero.h"
+
