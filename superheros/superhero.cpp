@@ -39,27 +39,38 @@ ostream& operator << (ostream& outs, const SuperHero &superhero){
     if(superhero.verbose){
         outs <<   ") :";
     }
-    if(superhero.power == 'f'){
-        outs << " Flying";
-    } else if(superhero.power == 'g'){
-        outs << " Giant";
-    } else if(superhero.power == 'h'){
-        outs << " Hacker";
-    } else if(superhero.power == 'n'){
-        outs << " None";
-    } else {
-        outs << " Weakling";
+    if(superhero.verbose){
+        if(superhero.power == 'f'){
+            outs << " Flying";
+        } else if(superhero.power == 'g'){
+            outs << " Giant";
+        } else if(superhero.power == 'h'){
+            outs << " Hacker";
+        } else if(superhero.power == 'n'){
+            outs << " None";
+        } else {
+            outs << " Weakling";
+        }
+    }
+    else {
+        outs << " " << superhero.power;
     }
     outs << endl;
     return outs;
 }
 
 istream& operator >> (istream& ins, SuperHero &superhero){
-    cout << "Enter name: ";
+    if(superhero.verbose){
+        cout << "Enter name: ";
+    }
     ins >> superhero.name;
-    cout << "Enter age: ";
+    if(superhero.verbose){
+        cout << "Enter age: ";
+    }
     ins >> superhero.age;
-    cout << "Enter power character: ";
+    if(superhero.verbose){
+        cout << "Enter power character: ";
+    }
     ins >> superhero.power;
     return ins;
 }

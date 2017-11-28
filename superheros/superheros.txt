@@ -1,10 +1,3 @@
-Batman 40 Hacker
-
-Superman 92 Flying
-
-The Hulk 64 Giant
-
- 0 None
-
-magi 22 Flying
-emil 22 Hacker
+emmi 22 f
+maggi 22 h
+ingi 222 c

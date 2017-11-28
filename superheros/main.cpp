@@ -5,44 +5,10 @@
 
 using namespace std;
 
-
-
-void createSomeHeroes() {
+int createGroupOfHeroes() {
 
     ofstream fout;
     fout.open("superheros.txt");
-    SuperHero batman("Batman", 40, 'h');
-
-    SuperHero superman("Superman", 92, 'f');
-
-    SuperHero hulk;
-    hulk.setName("The Hulk");
-    hulk.setAge(64);
-    hulk.setSuperPower('g');
-
-    SuperHero aquaman;
-
-    fout << batman << endl;
-    fout << superman << endl;
-    fout << hulk << endl;
-    fout << aquaman << endl;
-
-    batman.setVerbose(true);
-    superman.setVerbose(true);
-    hulk.setVerbose(true);
-    aquaman.setVerbose(true);
-
-    cout << batman << endl;
-    cout << superman << endl;
-    cout << hulk << endl;
-    cout << aquaman << endl;    
-
-    fout.close();
-}
-void createGroupOfHeroes() {
-
-    ofstream fout;
-    fout.open("superheros.txt", ios::app);
     int superHeroCount = 0, age = 0;
     string name = "";
     char power = 0;
@@ -51,6 +17,7 @@ void createGroupOfHeroes() {
     SuperHero heroGroup[superHeroCount];
     for(int i = 0; i < superHeroCount; i++){
         cout << "SuperHero #" << i+1 << endl;
+        heroGroup[i].setVerbose(true);
         cin >> heroGroup[i];
     }
     cout << endl << "Your Superteam: " << endl;
@@ -61,17 +28,31 @@ void createGroupOfHeroes() {
         cout << heroGroup[i];
     }
     fout.close();
+    return superHeroCount;
+}
 
+void printFromTxt(int superHeroCount){
+
+    SuperHero heroGroup2[superHeroCount];
+    ifstream fin;
+    fin.open("superheros.txt");
+
+    cout << endl << "Your Superteam from txt file" << endl;
+
+    for (int i = 0; i < superHeroCount; i++){
+        if (fin.is_open()){
+            heroGroup2[i].setVerbose(false);
+            fin >> heroGroup2[i];
+            heroGroup2[i].setVerbose(true);
+            cout << heroGroup2[i];
+        }
+    }
 }
 
 int main()
 {
-    cout << "PART A:" << endl;
-    createSomeHeroes();
-
-    cout << endl;
-    cout << "PART B:" << endl;
-    createGroupOfHeroes();
+    int superHeroCount = createGroupOfHeroes();
+    printFromTxt(superHeroCount);
 
     return 0;
         
