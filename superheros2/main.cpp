@@ -25,7 +25,7 @@ void createGroupOfHeroes() {
     
 }
 
-void printFromTxt() {
+void printFromBinary() {
     
 
     cout << endl << "Your Superteam from binary file" << endl;
@@ -49,7 +49,7 @@ void printFromTxt() {
 
 int main(){
     createGroupOfHeroes();
-    printFromTxt();
+    printFromBinary();
 
     return 0;
         
