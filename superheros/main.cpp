@@ -5,54 +5,45 @@
 
 using namespace std;
 
-int createGroupOfHeroes() {
+void createHeroe() {
 
+	SuperHero hero;
     ofstream fout;
-    fout.open("superheros.txt");
-    int superHeroCount = 0, age = 0;
-    string name = "";
-    char power = 0;
-    cout << "How many heroes are in the group? ";
-    cin >> superHeroCount;
-    SuperHero heroGroup[superHeroCount];
-    for(int i = 0; i < superHeroCount; i++){
-        cout << "SuperHero #" << i+1 << endl;
-        heroGroup[i].setVerbose(true);
-        cin >> heroGroup[i];
-    }
-    cout << endl << "Your Superteam: " << endl;
-    for(int i = 0; i < superHeroCount; i++){
-        heroGroup[i].setVerbose(false);
-        fout << heroGroup[i];
-        heroGroup[i].setVerbose(true);
-        cout << heroGroup[i];
-    }
+    fout.open("superheros.txt", ios::app);
+    cout << "Add a SuperHero" << endl;
+    hero.setVerbose(true);
+    cin >> hero;
+    hero.setVerbose(false);
+    fout << hero;
     fout.close();
-    return superHeroCount;
 }
 
-void printFromTxt(int superHeroCount){
+void printFromTxt(){
 
-    SuperHero heroGroup2[superHeroCount];
+
     ifstream fin;
     fin.open("superheros.txt");
 
+    SuperHero hero;
     cout << endl << "Your Superteam from txt file" << endl;
 
-    for (int i = 0; i < superHeroCount; i++){
-        if (fin.is_open()){
-            heroGroup2[i].setVerbose(false);
-            fin >> heroGroup2[i];
-            heroGroup2[i].setVerbose(true);
-            cout << heroGroup2[i];
-        }
+    if (fin.is_open()){
+    	while(!fin.eof()){
+    			hero.setVerbose(false);
+	        	fin >> hero;
+	       		hero.setVerbose(true);
+	       	if (!fin.eof()) {
+	        	cout << hero;
+    		}
+    	}
     }
+
 }
 
 int main()
 {
-    int superHeroCount = createGroupOfHeroes();
-    printFromTxt(superHeroCount);
+    createHeroe();
+    printFromTxt();
 
     return 0;
         
